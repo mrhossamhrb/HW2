@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>اختبار الأطفال</title>
+  <style>
+    body{
+      font-family: "Comic Sans MS", Tahoma;
+      background: linear-gradient(135deg,#cce5ff,#e6ffe6);
+      padding:20px;
+    }
+    .container{
+      max-width:900px;
+      margin:auto;
+      background:#fff;
+      padding:25px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,.15);
+    }
+    h1{text-align:center;color:#2c7be5;}
+    .student-box{
+      margin-bottom:20px;
+      padding:15px;
+      background:#fff3cd;
+      border-radius:15px;
+    }
+    .question{
+      margin-bottom:20px;
+      padding:15px;
+      border:2px dashed #ddd;
+      border-radius:15px;
+    }
+    .question h3{margin:0 0 10px;}
+    label{display:block;margin:5px 0;cursor:pointer;}
+    input[type="text"]{
+      width:100%;
+      padding:8px;
+      margin-top:8px;
+      border-radius:10px;
+      border:1px solid #ccc;
+    }
+    .feedback{font-size:20px;margin-top:8px;}
+    button{
+      width:100%;
+      padding:15px;
+      font-size:18px;
+      background:#28a745;
+      color:#fff;
+      border:none;
+      border-radius:15px;
+      cursor:pointer;
+      margin-top:20px;
+    }
+    button:hover{background:#218838;}
+    .result{
+      display:none;
+      margin-top:25px;
+      padding:20px;
+      background:#d1ecf1;
+      border-radius:15px;
+      font-size:20px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="printArea">
+  <h1>🌟 اختبار ممتع 🌟</h1>
+
+  <div class="student-box">
+    <label>👦 اسم الطالب:</label>
+    <input type="text" id="studentName" placeholder="اكتب اسمك هنا">
+  </div>
+
+<div class='question' id='q1Box'><H3>1 Helium is lighter than air; this property is considered as<H3>
+<label><input type='radio' name='q1' value='a a physical property only'> a a physical property only</label>
+<label><input type='radio' name='q1' value='b a chemical property only'> b a chemical property only</label>
+<label><input type='radio' name='q1' value='c both physical and chemical property'> c both physical and chemical property</label>
+<label><input type='radio' name='q1' value='d neither physical nor chemical property'> d neither physical nor chemical property</label>    <div class='feedback' id='f1'></div>  </div>
+<div class='question' id='q2Box'><H3>2 Blimps are filled with to rise up in the air<H3>
+<label><input type='radio' name='q2' value='a oxygen gas'> a oxygen gas</label>
+<label><input type='radio' name='q2' value='c atmospheric air'> c atmospheric air</label>
+<label><input type='radio' name='q2' value='b carbon dioxide gas'> b carbon dioxide gas</label>
+<label><input type='radio' name='q2' value='d helium gas'> d helium gas</label>    <div class='feedback' id='f1'></div>  </div>
+<div class='question' id='q3Box'><H3>3 We can use copper to make<H3>
+<label><input type='radio' name='q3' value='a handles of cooking pans'> a handles of cooking pans</label>
+<label><input type='radio' name='q3' value='b bodies of cooking pans'> b bodies of cooking pans</label>
+<label><input type='radio' name='q3' value='c gloves'> c gloves</label>
+<label><input type='radio' name='q3' value='d tires'> d tires</label>    <div class='feedback' id='f1'></div>  </div>
+<div class='question' id='q4Box'><H3>4 Steel is used in making hammers because it is<H3>
+<label><input type='radio' name='q4' value='a flexible'> a flexible</label>
+<label><input type='radio' name='q4' value='b smooth'> b smooth</label>
+<label><input type='radio' name='q4' value='c hard'> c hard</label>
+<label><input type='radio' name='q4' value='d transparent'> d transparent</label>    <div class='feedback' id='f1'></div>  </div>
+<div class='question' id='q5Box'><H3>5 Glass is transparent, so it can be used in making<H3>
+<label><input type='radio' name='q5' value='a eyeglasses'> a eyeglasses</label>
+<label><input type='radio' name='q5' value='b tires'> b tires</label>
+<label><input type='radio' name='q5' value='c screwdrivers'> c screwdrivers</label>
+<label><input type='radio' name='q5' value='d gloves'> d gloves</label>    <div class='feedback' id='f1'></div>  </div>
+<div class='question' id='q6Box'><H3>6 When you put a lighting match close to helium gas, it will<H3>
+<label><input type='radio' name='q6' value='a burn'> a burn</label>
+<label><input type='radio' name='q6' value='b not burn'> b not burn</label>
+<label><input type='radio' name='q6' value='c form fire'> c form fire</label>
+<label><input type='radio' name='q6' value='d freeze'> d freeze</label>    <div class='feedback' id='f1'></div>  </div>
+
+
+  <div class="question" id="q2Box">
+    <h3>2️⃣ أكمل: عاصمة مصر هي ________</h3>
+    <input type="text" id="q2">
+    <div class="feedback" id="f2"></div>
+  </div>
+
+  <div class="question" id="q3Box">
+    <h3>3️⃣ صح أم خطأ: الشمس تدور حول الأرض</h3>
+    <label><input type="radio" name="q3" value="صح"> صح</label>
+    <label><input type="radio" name="q3" value="خطأ"> خطأ</label>
+    <div class="feedback" id="f3"></div>
+  </div>
+
+  <button onclick="checkAnswers()">✨ تصحيح الاختبار ✨</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function checkAnswers(){
+    const name = document.getElementById('studentName').value;
+    if(!name){
+      alert('من فضلك اكتب اسمك');
+      return;
+    }
+
+    const f1 = document.getElementById('f1');
+    const f2 = document.getElementById('f2');
+    const f3 = document.getElementById('f3');
+    const result = document.getElementById('result');
+
+    let score = 0;
+    const total = 3;
+
+    // Q1 اختيار من متعدد
+    const q1 = document.querySelector("input[name='q1']:checked");
+    if(q1 && q1.value === "9"){
+      score++;
+      f1.innerHTML = '✔️ إجابة صحيحة';
+    } else {
+      f1.innerHTML = '❌ إجابة خاطئة';
+    }
+
+    // Q2 أكمل
+    const q2 = document.getElementById('q2').value.trim();
+    if(q2.replace(/\s+/g,'').toLowerCase() === "القاهرة"){
+      score++;
+      f2.innerHTML = '✔️ ممتاز';
+    } else {
+      f2.innerHTML = '❌ حاول مرة أخرى';
+    }
+
+    // Q3 صح أو خطأ
+    const q3 = document.querySelector("input[name='q3']:checked");
+    if(q3 && q3.value === "خطأ"){
+      score++;
+      f3.innerHTML = '✔️ رائع';
+    } else {
+      f3.innerHTML = '❌ خطأ';
+    }
+
+    const percent = Math.round((score / total) * 100);
+
+    result.style.display = 'block';
+    result.innerHTML = `
+      🎉 أحسنت يا ${name}!<br>
+      درجتك: ${score} من ${total}<br>
+      النسبة: ${percent}%<br><br>
+      <button onclick="window.print()">🖨️ حفظ النتيجة PDF</button>
+    `;
+  }
+</script>
+
+
+</body>
+</html>
